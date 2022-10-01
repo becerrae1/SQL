@@ -1,0 +1,33 @@
+--Create store table
+CREATE TABLE store(id INTEGER PRIMARY KEY, name TEXT, price INTEGER, aisle INTEGER, popularity INTEGER);
+
+--Inserting store values to the store table
+INSERT INTO store VALUES 
+(1, 'chocolate', 0.99, 1, 74),
+(2, 'wipes', 1.99, 4, 53),
+(3, 'chicken', 4.99, 10, 92),
+(4, 'steak', 9.99, 10, 85),
+(5, 'onions', 1.99, 8, 78),
+(6, 'peppers', 2.99, 8, 61),
+(7, 'bananas', 1.99, 7, 75),
+(8, 'tomatoes', 0.99, 8, 54),
+(9, 'cucumbers', 3.99, 8, 41),
+(10, 'salmon', 7.99, 10, 67),
+(11, 'turkey', 6.99, 10, 74),
+(12, 'cheese', 4.99, 6, 96),
+(13, 'milk', 5.99, 6, 99),
+(14, 'peanut butter', 6.99, 5, 75),
+(15, 'cough drops', 12.99, 4, 17);
+
+--Display the table ordered by price
+SELECT * FROM store
+ORDER BY price DESC;
+
+--what is the avg price of items in aisle 10?
+SELECT avg(price) FROM store 
+WHERE aisle = 10;
+
+--What are the 5 most popular items at the store?
+SELECT name, popularity FROM store 
+ORDER BY popularity DESC
+LIMIT 5;
