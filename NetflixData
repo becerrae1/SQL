@@ -1,0 +1,28 @@
+--Data being exported from https://bit.io/CharlotteChaze/BreakIntoTech
+
+--Count the amount of TV shows are in the titles table
+SELECT count(title)
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE type = 'Movie'; --6131
+
+--When was the most recent batch of tv shows and/or movies added to the database?
+SELECT title, date_added
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+WHERE date_added > '2021-09-01 00:00:00';
+
+LIST ALL THE MOVIES AND TV SHOWS IN ALPHABETICAL ORDER
+SELECT type, title
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+ORDER BY title;
+
+WHO WAS THE DIRECTOR FOR THE MOVIES BRIGHT STAR?
+SELECT people.director, titles.title
+FROM "CharlotteChaze/BreakIntoTech"."netflix_people" people
+    LEFT JOIN "CharlotteChaze/BreakIntoTech"."netflix_titles_info" titles
+    ON people.show_id = titles.show_id
+    WHERE titles.title = 'Bright Star';
+
+WHAT IS THE OLDEST MOVIE IN THE DATABASE?
+SELECT title, release_year
+FROM "CharlotteChaze/BreakIntoTech"."netflix_titles_info"
+ORDER BY release_year LIMIT 2;
