@@ -1,0 +1,19 @@
+--This information is downloaded from Kaggle
+
+--How many tweets were tweeted during this time period?
+SELECT COUNT(*) FROM database.Tweets; --14485
+
+--How many tweets were negative towards these airlines?
+SELECT COUNT(*) FROM database.tweets
+WHERE airline_sentiment = 'negative'; --9082
+
+SELECT * FROM database.tweets;
+
+SELECT COUNT(*) FROM database.tweets
+WHERE airline_sentiment = 'positive'; --2334
+
+--Count the names of author of each tweet that has tweeted more than twice
+SELECT COUNT(name), name, text 
+FROM database.Tweets
+GROUP BY name
+HAVING COUNT(name) > 2;
